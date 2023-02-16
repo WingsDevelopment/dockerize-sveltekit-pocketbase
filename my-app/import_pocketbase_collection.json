@@ -1,0 +1,106 @@
+[
+	{
+		"id": "_pb_users_auth_",
+		"name": "users",
+		"type": "auth",
+		"system": false,
+		"schema": [
+			{
+				"id": "users_name",
+				"name": "name",
+				"type": "text",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "users_avatar",
+				"name": "avatar",
+				"type": "file",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"maxSelect": 1,
+					"maxSize": 5242880,
+					"mimeTypes": ["image/jpeg", "image/png", "image/svg+xml", "image/gif", "image/webp"],
+					"thumbs": null
+				}
+			},
+			{
+				"id": "pk4tbtba",
+				"name": "followingTags",
+				"type": "relation",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"collectionId": "i2kpe75jhjswrbs",
+					"cascadeDelete": false,
+					"maxSelect": 30,
+					"displayFields": ["name", "id"]
+				}
+			}
+		],
+		"listRule": "",
+		"viewRule": "",
+		"createRule": "",
+		"updateRule": "id = @request.auth.id",
+		"deleteRule": "id = @request.auth.id",
+		"options": {
+			"allowEmailAuth": true,
+			"allowOAuth2Auth": true,
+			"allowUsernameAuth": true,
+			"exceptEmailDomains": null,
+			"manageRule": null,
+			"minPasswordLength": 8,
+			"onlyEmailDomains": null,
+			"requireEmail": false
+		}
+	},
+	{
+		"id": "i2kpe75jhjswrbs",
+		"name": "tags",
+		"type": "base",
+		"system": false,
+		"schema": [
+			{
+				"id": "lw46mzzm",
+				"name": "name",
+				"type": "text",
+				"system": false,
+				"required": true,
+				"unique": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			},
+			{
+				"id": "gnh8hwfk",
+				"name": "slug",
+				"type": "text",
+				"system": false,
+				"required": false,
+				"unique": false,
+				"options": {
+					"min": null,
+					"max": null,
+					"pattern": ""
+				}
+			}
+		],
+		"listRule": "",
+		"viewRule": "",
+		"createRule": "",
+		"updateRule": null,
+		"deleteRule": null,
+		"options": {}
+	}
+]
