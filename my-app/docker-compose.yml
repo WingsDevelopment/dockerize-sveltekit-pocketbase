@@ -1,15 +1,6 @@
 version: '3.9'
 
 services:
-  sveltekit:
-    container_name: sveltekit
-    build: .
-    restart: always
-    ports:
-      - 5050:5050
-    environment:
-      PORT: 5050
-      ORIGIN: 'http://localhost:5050'
   pocketbase:
     image: ghcr.io/muchobien/pocketbase:latest
     container_name: pocketbase
@@ -29,3 +20,14 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
+  sveltekit:
+    container_name: sveltekit
+    build: .
+    restart: always
+    ports:
+      - 5050:5050
+    environment:
+      PORT: 5050
+      ORIGIN: 'http://localhost:5050'
+    depends_on:
+      - pocketbase
